@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Owner</title>
+    <link rel="icon" type="image/x-icon" href="/static/logo.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='business_styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">investify</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <h1>Welcome, Business Owner!</h1>
+    
+    <form method="POST">
+        <label for="idea" class = "startup_name">Startup Idea:</label>
+        <input type="text" id="idea" name="idea" required>
+
+        <label for="description" class = "startup_desc">Description:</label>
+        <input id="description" name="description" required></input>
+
+        <label for="funding_needs" class = "startup_needs">Funding Needs:</label>
+        <input type="text" id="funding_needs" name="funding_needs" required>
+
+        <label for="phone" class = "phone_num">Phone Number:</label>
+        <input type="text" id="phone" name="phone" pattern="^\d{10}$" required>
+
+        <label for="email" class = "e-mail">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <script>alert("{{ messages[0] }}");</script>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

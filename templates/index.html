@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Investify</title>
+    <link rel="icon" type="image/x-icon" href="/static/logo.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1 class="describes">Which of the following best describes you?</h1>
+    <div class="button-container">
+        <a href="{{ url_for('business_owner') }}">
+            <button class="button">
+                <h4>Small Business Owner</h4>
+                <p>I am a small business owner looking for funding from investors.</p>
+            </button>
+        </a>
+        <a href="{{ url_for('investor') }}">
+            <button class="button">
+                <h4>Investor</h4>
+                <p>I am an Investor looking to invest in small businesses</p>
+            </button>
+        </a>
+    </div>
+</body>
+</html>
