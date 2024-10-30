@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Investor Page</title>
+        <link rel="icon" type="image/x-icon" href="/static/logo.ico">
         <link rel="stylesheet" href="{{ url_for('static', filename='investorstyles.css') }}">
         <script src="{{ url_for('static', filename='investorscript.js') }}"></script>
     </head>
@@ -11,10 +12,8 @@
             <div class="nav-container">
                 <a href="/" class="nav-logo">Investify</a>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -29,7 +28,7 @@
                     <strong>Funding Needs:</strong> {{ submission.funding_needs }}<br>
                     <strong>Phone:</strong> {{ submission.phone }}<br>
                     <strong>Email:</strong> {{ submission.email }}<br>
-                    <button onclick="openMail('{{ submission.email }}')">Contact this business</button>
+                    <button  target = "__blank" onclick="openMail('{{ submission.email }}')">Contact this business</button>
                 </li>
                 <hr>
                 {% endfor %}

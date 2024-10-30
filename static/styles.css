@@ -46,3 +46,58 @@ p{
 h4{
     font-size: large;
 }
+
+/* Navbar Styling */
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adjust the navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    z-index: 1000;
+    padding: 10px 0; /* Remove side padding to align perfectly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.nav-container {
+    max-width: 100%;
+    padding: 0 20px; /* Optional padding for inner content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    display:flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px 12px;
+    transition: background 0.2s;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
