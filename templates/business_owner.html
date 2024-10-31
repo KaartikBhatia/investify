@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Business Owner</title>
     <link rel="icon" type="image/x-icon" href="/static/logo.ico">
-    <link rel="stylesheet" href="{{ url_for('static', filename='business_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="nav-logo">investify</a>
             <ul class="nav-links">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="about">About Us</a></li>
+                <li><a href="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -26,8 +26,12 @@
         <label for="description" class = "startup_desc">Description:</label>
         <input id="description" name="description" required></input>
 
-        <label for="funding_needs" class = "startup_needs">Funding Needs:</label>
+        <label for="funding_needs" class = "startup_needs">Why do you need funding:</label>
         <input type="text" id="funding_needs" name="funding_needs" required>
+
+        <label for="amount_funding" class="amount_funding">Amount of funding:</label>
+        <input type="text" id="amount_funding" name="amount_funding" required> 
+
 
         <label for="phone" class = "phone_num">Phone Number:</label>
         <input type="text" id="phone" name="phone" pattern="^\d{10}$" required>

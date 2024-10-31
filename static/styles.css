@@ -5,56 +5,28 @@
     font-style: normal;
 }
 
-body {
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
     font-family: 'Roboto Flex', sans-serif;
     font-size: small;
     background-image: linear-gradient(to right, white, gray);
+    padding-top: 20px; /* Adjust padding to ensure enough space for the navbar */
 }
 
-.describes {
-    position: absolute;
-    top: 200px;
-    left: 400px;
-    font-size: 3em;
+h1 {
+    margin-top: 0;
+    padding-top: 5px; /* Fine-tune spacing below navbar */
+    text-align: center;
 }
 
-.button-container {
-    position: absolute;
-    top: 300px;  /* Adjust the vertical position as needed */
-    left: 550px; /* Adjust the horizontal position as needed */
-    display: flex;
-    flex-direction: row;  /* Change to row for side-by-side buttons */
-    gap:15px;            /* Space between the buttons */
-}
-
-.button {
-    padding: 10px 20px;
-    font-size: 2em;
-    cursor: pointer;
-    border: 5px solid black;
-    border-radius: 50px;
-    width: 200px;
-    height: 200px;
-    background-color: white;
-}
-
-p{
-    color:gray;
-    font-size: 15px;
-}
-
-h4{
-    font-size: large;
-}
 
 /* Navbar Styling */
-
-html {
-    margin: 0;
-    padding: 0;
-}
-
-/* Adjust the navbar styling */
 .navbar {
     position: fixed;
     top: 0;
@@ -63,12 +35,13 @@ html {
     background-color: #000000;
     color: #fff;
     z-index: 1000;
-    padding: 10px 0; /* Remove side padding to align perfectly */
+    padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .nav-container {
     max-width: 100%;
-    padding: 0 20px; /* Optional padding for inner content */
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,7 +52,7 @@ html {
     font-size: 1.5em;
     font-weight: bold;
     text-decoration: none;
-    display:flex;
+    display: flex;
     justify-content: center;
 }
 
@@ -100,4 +73,97 @@ html {
 .nav-links a:hover {
     background-color: #555;
     border-radius: 5px;
+}
+
+/* Content Styling */
+.describes {
+    position: absolute;
+    top: 200px;
+    left: 400px;
+    font-size: 3em;
+}
+
+.button-container {
+    position: absolute;
+    top: 300px;
+    left: 550px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 2em;
+    cursor: pointer;
+    border: 5px solid black;
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.button:hover {
+    background-color: #e0e0e0;
+    border-color: #555;
+    transform: scale(1.03);
+}
+
+p {
+    color: gray;
+    font-size: 15px;
+}
+
+h4 {
+    font-size: large;
+}
+
+.startup_name {
+    font-family: 'Roboto Flex', sans-serif;
+    color: black;
+    font-size: medium;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+.about{
+    text-align: center;
+}
+
+.contact{
+    text-align: center;
+
+}
+
+hr{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    height: 20px;
+}
+.submissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ensures 5 items per row if space allows */
+    gap: 20px; /* Adds spacing between items */
+    padding: 20px;
+    list-style:none;
+}
+
+.submission-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.submission-item:hover {
+    transform: scale(1.02);
+}
+
+.contactthis{
+    cursor: pointer;
 }

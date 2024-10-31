@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Investor Page</title>
         <link rel="icon" type="image/x-icon" href="/static/logo.ico">
-        <link rel="stylesheet" href="{{ url_for('static', filename='investorstyles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
         <script src="{{ url_for('static', filename='investorscript.js') }}"></script>
     </head>
     <body>
@@ -12,27 +12,27 @@
             <div class="nav-container">
                 <a href="/" class="nav-logo">Investify</a>
                 <ul class="nav-links">
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="about">About Us</a></li>
+                <li><a href="contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
         
         <h1>Investor Submissions</h1>
         <div class="business_box">
-            <ul>
+            <ul class="submissions-grid">
                 {% for submission in submissions %}
-                <li>
+                <li class="submission-item">
                     <strong>Idea:</strong> {{ submission.idea }}<br>
                     <strong>Description:</strong> {{ submission.description }}<br>
                     <strong>Funding Needs:</strong> {{ submission.funding_needs }}<br>
+                    <strong>Amount of Funding:</strong> {{ submission.amount_funding }}<br>
                     <strong>Phone:</strong> {{ submission.phone }}<br>
                     <strong>Email:</strong> {{ submission.email }}<br>
-                    <button  target = "__blank" onclick="openMail('{{ submission.email }}')">Contact this business</button>
+                    <button class = "contactthis" onclick="openMail('{{ submission.email }}')">Contact this business</button>
                 </li>
-                <hr>
                 {% endfor %}
             </ul>
-        </div>
+        </div>        
     </body>
 </html>
