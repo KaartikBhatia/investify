@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-logo">investify</a>
+            <a href="/" class="nav-logo">Investify</a>
             <ul class="nav-links">
                 <li><a href="about">About Us</a></li>
                 <li><a href="contact">Contact</a></li>
@@ -26,8 +26,14 @@
         </a>
         <a href="{{ url_for('investor') }}">
             <button class="button">
-                <h4>Investor</h4>
-                <p>I am an Investor looking to invest in small businesses</p>
+                <h4>Small Business Investor</h4>
+                <p>I am an investor looking to invest in small businesses</p>
+            </button>
+        </a>
+        <a href="{{ url_for('stock_analysis') }}">
+            <button class="button">
+                <h4>Stock Market Analysis Tool</h4>
+                <p>I am an investor looking to invest in stocks</p>
             </button>
         </a>
     </div>

@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Investor Page</title>
-        <link rel="icon" type="image/x-icon" href="/static/logo.ico">
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-        <script src="{{ url_for('static', filename='investorscript.js') }}"></script>
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="nav-container">
-                <a href="/" class="nav-logo">Investify</a>
-                <ul class="nav-links">
-                    <li><a href="about">About Us</a></li>
+<head>
+    <meta charset="UTF-8">
+    <title>Investor Page</title>
+    <link rel="icon" type="image/x-icon" href="/static/logo.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='investorscript.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Investify</a>
+            <ul class="nav-links">
+                <li><a href="about">About Us</a></li>
                 <li><a href="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-container" style="margin-top: 6vh;">
+        <div class="submissions-container">
+            <h1>Investor Submissions</h1>
+            <div class="business_box">
+                <ul class="submissions-grid">
+                    {% for submission in submissions %}
+                    <li class="submission-item">
+                        <strong>Idea:</strong> {{ submission.idea }}<br>
+                        <strong>Description:</strong> {{ submission.description }}<br>
+                        <strong>Funding Needs:</strong> {{ submission.funding_needs }}<br>
+                        <strong>Amount of Funding:</strong> {{ submission.amount_funding }}<br>
+                        <strong>Phone:</strong> {{ submission.phone }}<br>
+                        <strong>Email:</strong> {{ submission.email }}<br>
+                        <button class="contactthis" onclick="openMail('{{ submission.email }}')">Contact this business</button>
+                    
+
+                        <button class="like-button" onclick="toggleLike(this)">Like</button>
+                        <span class="like-count">0</span>
+                    </li>
+                    {% endfor %}
                 </ul>
             </div>
-        </nav>
-        
-        <h1>Investor Submissions</h1>
-        <div class="business_box">
-            <ul class="submissions-grid">
-                {% for submission in submissions %}
-                <li class="submission-item">
-                    <strong>Idea:</strong> {{ submission.idea }}<br>
-                    <strong>Description:</strong> {{ submission.description }}<br>
-                    <strong>Funding Needs:</strong> {{ submission.funding_needs }}<br>
-                    <strong>Amount of Funding:</strong> {{ submission.amount_funding }}<br>
-                    <strong>Phone:</strong> {{ submission.phone }}<br>
-                    <strong>Email:</strong> {{ submission.email }}<br>
-                    <button class = "contactthis" onclick="openMail('{{ submission.email }}')">Contact this business</button>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>        
-    </body>
+        </div>
+
+        <div class="search-container">
+            <h2 class="whatbus">What kind of business are you looking for?</h2>
+            <div class="search-input-container">
+                <input type="text" id="search-input" placeholder="The perfect business awaits...">
+                <button class="searchtool" onclick="filterSubmissions()">Search</button>
+            </div>
+            <div class="no-results" id="no-results" style="display: none;">No matching businesses found.</div>
+            <div class="search-results">
+                <h3>Best Match:</h3>
+                <ul id="results-list" class="submissions-grid">
+                    
+                </ul>
+            </div>
+        </div>
+    </main>        
+</body>
 </html>

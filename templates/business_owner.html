@@ -16,32 +16,56 @@
             </ul>
         </div>
     </nav>
-    
-    <h1>Submit your business here!</h1>
-    
-    <form method="POST">
-        <label for="idea" class = "startup_name">Startup Idea:</label>
-        <input type="text" id="idea" name="idea" required>
+    <div class="temp">
+        <div class="big-container">
+            <div class="form-cont">
+                <h1 class="bitle">Submit your business here!</h1>
+                <form method="POST">
+                    <label for="idea" class="startup_name">Startup Idea:</label>
+                    <input type="text" id="idea" name="idea" required>
 
-        <label for="description" class = "startup_desc">Description:</label>
-        <input id="description" name="description" required></input>
+                    <label for="description" class="startup_desc">Description:</label>
+                    <input id="description" name="description" required>
 
-        <label for="funding_needs" class = "startup_needs">Why do you need funding:</label>
-        <input type="text" id="funding_needs" name="funding_needs" required>
+                    <label for="funding_needs" class="startup_needs">Why do you need funding:</label>
+                    <input type="text" id="funding_needs" name="funding_needs" required>
 
-        <label for="amount_funding" class="amount_funding">Amount of funding:</label>
-        <input type="text" id="amount_funding" name="amount_funding" required> 
+                    <label for="amount_funding" class="amount_funding">Amount of funding:</label>
+                    <input type="text" id="amount_funding" name="amount_funding" required> 
 
+                    <label for="phone" class="phone_num">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" pattern="^\d{10}$" required>
 
-        <label for="phone" class = "phone_num">Phone Number:</label>
-        <input type="text" id="phone" name="phone" pattern="^\d{10}$" required>
+                    <label for="email" class="e-mail">Email:</label>
+                    <input type="email" id="email" name="email" required>
 
-        <label for="email" class = "e-mail">Email:</label>
-        <input type="email" id="email" name="email" required>
+                    <button class="submit" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="form-cont">
+                <h1 class="bitle">Example Form Submission</h1>
+                <form method="POST">
+                    <label for="idea2" class="startup_name">Startup Idea:</label>
+                    <input type="text" id="idea2" name="idea2" disabled placeholder="Investify">
 
-        <button type="submit">Submit</button>
-    </form>
+                    <label for="description2" class="startup_desc">Description:</label>
+                    <input id="description2" name="description2" disabled placeholder="We connect small businesses and investors.">
 
+                    <label for="funding_needs2" class="startup_needs">Why do you need funding:</label>
+                    <input type="text" id="funding_needs2" name="funding_needs2" disabled placeholder="We need funding to hire more people to work on our software.">
+
+                    <label for="amount_funding2" class="amount_funding">Amount of funding:</label>
+                    <input type="text" id="amount_funding2" name="amount_funding2" disabled placeholder="$8,000"> 
+
+                    <label for="phone2" class="phone_num">Phone Number:</label>
+                    <input type="text" id="phone2" name="phone2" pattern="^\d{10}$" disabled placeholder="1234567890">
+
+                    <label for="email2" class="e-mail">Email:</label>
+                    <input type="email" id="email2" name="email2" disabled placeholder="owner@investify.com">
+                </form>
+            </div>
+        </div>
+    </div>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             <script>alert("{{ messages[0] }}");</script>
