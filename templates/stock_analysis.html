@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Owner</title>
+    <link rel="icon" type="image/x-icon" href="/static/logo.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">investify</a>
+            <ul class="nav-links">
+                <li><a href="about">About Us</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container2">
+        <div class="header2">
+            <h1>Market Analysis Dashboard</h1>
+        </div>
+
+        <div class="search-container2">
+            <input type="text" id="symbolInput2" placeholder="Enter stock symbol (e.g., AAPL)" />
+            <select id="timeframeSelect2">
+                <option value="1D">1 Day</option>
+                <option value="1W">1 Week</option>
+                <option value="1M">1 Month</option>
+                <option value="3M">3 Months</option>
+            </select>
+            <button id="analyzeBtn2">Analyze</button>
+        </div>
+
+        <div class="loading2" id="loadingIndicator">
+            Loading data...
+        </div>
+
+        <div class="dashboard2">
+            <div class="card2">
+                <h2>Price Chart</h2>
+                <div class="chart-container2">
+                    <canvas id="priceChart2"></canvas>
+                </div>
+            </div>
+            <div class="card2">
+                <h2>Volume Analysis</h2>
+                <div class="chart-container2">
+                    <canvas id="volumeChart2"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard2">
+            <div class="card2">
+                <div class="metric2">
+                    <div class="metric-value2" id="currentPrice2">--</div>
+                    <div class="metric-label2">Current Price</div>
+                </div>
+            </div>
+            <div class="card2">
+                <div class="metric2">
+                    <div class="metric-value2" id="volume2">--</div>
+                    <div class="metric-label2">24h Volume</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
