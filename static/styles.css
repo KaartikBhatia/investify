@@ -525,3 +525,38 @@ button:hover {
     padding: 20px;
 }
 
+.contactthis {
+    background-color: #007bff;  /* solid blue by default */
+    color: white;               /* white text */
+    border: 2px solid #007bff; /* same as background */
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.contactthis:hover {
+    background-color: #0056b3; /* slightly darker on hover */
+    border-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Analyze Button */
+#analyzeBtn2 {
+    background-color: #28a745;  /* solid green by default */
+    color: white;               /* white text */
+    border: 2px solid #28a745; /* same as background */
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#analyzeBtn2:hover {
+    background-color: #1e7e34; /* darker green on hover */
+    border-color: #1e7e34;
+    transform: scale(1.03);
+}

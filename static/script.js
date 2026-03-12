@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const analyzeBtn = document.getElementById("analyzeBtn2");
     const symbolInput = document.getElementById("symbolInput2");
+    const dropdown = document.getElementById("symbolDropdown");
     const loadingIndicator = document.getElementById("loadingIndicator");
     const currentPrice = document.getElementById("currentPrice2");
     const volume = document.getElementById("volume2");
@@ -8,22 +9,23 @@ document.addEventListener("DOMContentLoaded", function() {
     let priceChart = null;
     let volumeChart = null;
 
-    analyzeBtn.addEventListener("click", () => {
-        const symbol = symbolInput.value;
+    function fetchAndUpdate(symbol) {
         if (!symbol) {
-            alert("Please enter a stock symbol.");
+            alert("Please select a stock symbol.");
             return;
         }
 
         loadingIndicator.style.display = "block";
 
-        const apiKey = "";
-        const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`;
-
-        fetch(url)
+        fetch(`/stock?symbol=${symbol}`)
             .then(response => response.json())
             .then(data => {
                 loadingIndicator.style.display = "none";
+
+                if (!data["Time Series (Daily)"]) {
+                    alert("Failed to fetch stock data. Check the symbol.");
+                    return;
+                }
 
                 const timeSeries = data["Time Series (Daily)"];
                 const dates = Object.keys(timeSeries).reverse();
@@ -33,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 currentPrice.innerText = `$${prices[prices.length - 1]}`;
                 volume.innerText = volumes[volumes.length - 1];
 
-                
                 priceChart = updateChart(priceChart, "priceChart2", dates, prices, "Price ($)");
                 volumeChart = updateChart(volumeChart, "volumeChart2", dates, volumes, "Volume");
             })
@@ -42,12 +43,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Failed to fetch stock data. Please try again.");
                 console.error("Error fetching stock data:", error);
             });
+    }
+
+    // Button click
+    analyzeBtn.addEventListener("click", () => {
+        fetchAndUpdate(symbolInput.value);
+    });
+
+    // Dropdown change
+    dropdown.addEventListener("change", () => {
+        symbolInput.value = dropdown.value;  // optional: sync input with dropdown
+        fetchAndUpdate(dropdown.value);
     });
 
     function updateChart(chart, canvasId, labels, data, label) {
-        if (chart) {
-            chart.destroy(); 
-        }
+        if (chart) chart.destroy();
 
         const ctx = document.getElementById(canvasId).getContext("2d");
         return new Chart(ctx, {
