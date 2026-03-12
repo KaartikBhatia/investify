@@ -30,10 +30,9 @@
                         <strong>Amount of Funding:</strong> {{ submission.amount_funding }}<br>
                         <strong>Phone:</strong> {{ submission.phone }}<br>
                         <strong>Email:</strong> {{ submission.email }}<br>
-                        <button onclick="openMail('test@gmail.com')">Contact this business</button>                    
+                        <button class="contactthis" onclick="openMail('{{ submission.email }}')">Contact this business</button>                    
 
                         <button class="like-button" onclick="toggleLike(this)">Like</button>
-                        <span class="like-count">0</span>
                     </li>
                     {% endfor %}
                 </ul>

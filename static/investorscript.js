@@ -1,7 +1,12 @@
-
 function openMail(email) {
     if (email) {
-        window.location.href = `mailto:${email}`;
+        const encodedEmail = encodeURIComponent(email);
+        const subject = encodeURIComponent("Inquiry about your business");
+        const body = encodeURIComponent(
+            "Hi,\n\nI am interested in learning more about your business submission.\n\nBest regards,"
+        );
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodedEmail}&su=${subject}&body=${body}`;
+        window.open(gmailUrl, "_blank");
     } else {
         alert("No email provided.");
     }
@@ -39,17 +44,13 @@ async function filterSubmissions() {
 }
 
 function toggleLike(button) {
-    
-    const counter = button.nextElementSibling;
-    let currentLikes = parseInt(counter.innerText) || 0; 
-
-    
-    currentLikes += 1;
-
-    
-    counter.innerText = currentLikes;
-
-    
-    button.innerText = "Liked";
-    button.disabled = true; 
+    if (button.classList.contains("liked")) {
+        button.classList.remove("liked");
+        button.style.backgroundColor = "#4CAF50";
+        button.innerText = "Like";
+    } else {
+        button.classList.add("liked");
+        button.style.backgroundColor = "#007bff";
+        button.innerText = "Unlike";
+    }
 }
