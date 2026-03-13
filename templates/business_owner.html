@@ -22,25 +22,49 @@
                 <h1 class="bitle">Submit your business here!</h1>
                 <form method="POST">
                     <label for="idea" class="startup_name">Startup Idea:</label>
-                    <input type="text" id="idea" name="idea" required>
+                    <input type="text" id="idea" name="idea" placeholder = "Our idea was to" required>
 
                     <label for="description" class="startup_desc">Description:</label>
-                    <input id="description" name="description" required>
+                    <input id="description" name="description" placeholder = "Our business is..." required>
 
                     <label for="funding_needs" class="startup_needs">Why do you need funding:</label>
-                    <input type="text" id="funding_needs" name="funding_needs" required>
+                    <input type="text" id="funding_needs" name="funding_needs" placeholder = "We need funding because..." required>
 
                     <label for="amount_funding" class="amount_funding">Amount of funding:</label>
-                    <input type="text" id="amount_funding" name="amount_funding" required> 
+                    <input 
+                        type="text" 
+                        id="amount_funding" 
+                        name="amount_funding"
+                        placeholder="$5000"
+                        pattern="^\$\d+"
+                        title="Amount must start with a $ sign (example: $5000)"
+                        required
+                    >
 
                     <label for="phone" class="phone_num">Phone Number:</label>
-                    <input type="text" id="phone" name="phone" pattern="^\d{10}$" required>
+                    <input 
+                        type="text" 
+                        id="phone" 
+                        name="phone" 
+                        pattern="^\d{10}$"
+                        title="Phone number must be exactly 10 digits"
+                        placeholder="1234567890"
+                        required
+                    >
 
                     <label for="email" class="e-mail">Email:</label>
-                    <input type="email" id="email" name="email" required>
-
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email"
+                        pattern="^[^@\s]+@[^@\s]+\.com$"
+                        title="Email must look like name@example.com"
+                        placeholder="name@example.com"
+                        required
+                    >
                     <button class="submit" type="submit">Submit</button>
                 </form>
+                
             </div>
             <div class="form-cont">
                 <h1 class="bitle">Example Form Submission</h1>
@@ -62,6 +86,8 @@
 
                     <label for="email2" class="e-mail">Email:</label>
                     <input type="email" id="email2" name="email2" disabled placeholder="owner@investify.com">
+
+                    <button class = "submit2" disabled>Submit</button>
                 </form>
             </div>
         </div>

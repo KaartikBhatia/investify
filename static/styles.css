@@ -419,7 +419,14 @@ input, button {
     cursor: pointer; 
 }
 
-.submit :hover {
+.submit2 {
+    background-color: grey;
+    color: darkgrey;
+    border:none;
+    cursor: default;
+}
+
+.submit:hover {
     background-color: #218838; 
 }
 
@@ -492,9 +499,6 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #2980b9;
-}
 
 .dashboard2 {
     display: grid;

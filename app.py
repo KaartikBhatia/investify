@@ -20,6 +20,7 @@ def business_owner():
             'idea': request.form.get('idea'),
             'description': request.form.get('description'),
             'funding_needs': request.form.get('funding_needs'),
+            'amount_funding': request.form.get('amount_funding'),
             'phone': request.form.get('phone'),
             'email': request.form.get('email')
         }

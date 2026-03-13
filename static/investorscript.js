@@ -30,10 +30,11 @@ async function filterSubmissions() {
             const listItem = document.createElement('li');
             listItem.className = 'submission-item';
             listItem.innerHTML = `<strong>Idea:</strong> ${match.idea}<br>
-                                  <strong>Description:</strong> ${match.description}<br>
-                                  <strong>Funding Needs:</strong> ${match.funding_needs}<br>
-                                  <strong>Phone:</strong> ${match.phone}<br>
-                                  <strong>Email:</strong> ${match.email}<br>`;
+                      <strong>Description:</strong> ${match.description}<br>
+                      <strong>Funding Needs:</strong> ${match.funding_needs}<br>
+                      <strong>Amount of Funding:</strong> ${match.amount_funding}<br>
+                      <strong>Phone:</strong> ${match.phone}<br>
+                      <strong>Email:</strong> ${match.email}<br>`;
             resultsList.appendChild(listItem);
         });
     } else {
